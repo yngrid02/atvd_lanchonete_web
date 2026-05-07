@@ -1,11 +1,32 @@
+import ItemCardapio from "./ItemCardapio.jsx";
+
 function App() {
   const cardapio = [
     { id: 1, nome: "X-Burguer", preco: 18.90 },
     { id: 2, nome: "X-Salada", preco: 20.50 },
     { id: 3, nome: "Batata Frita", preco: 15.00 },
-    { id: 4, nome: "Refrigerante", preco: 7.00 },
+    { id: 4, nome: "Àgua", preco: 7.00 },
     { id: 5, nome: "Milk Shake", preco: 14.50 },
   ];
+
+  const estiloCard = {
+    backgroundColor: "#ffffff",
+    padding: "20px",
+    borderRadius: "12px",
+    boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
+    textAlign: "center",
+    color: "#000",
+  };
+
+  const estiloTitulo = {
+    color: "#000",
+  };
+
+  const estiloPreco = {
+    fontSize: "18px",
+    fontWeight: "bold",
+    color: "#000",
+  };
 
   return (
     <div
@@ -37,29 +58,14 @@ function App() {
         }}
       >
         {cardapio.map((item) => (
-          <div
+          <ItemCardapio
             key={item.id}
-            style={{
-              backgroundColor: "#ffffff",
-              padding: "20px",
-              borderRadius: "12px",
-              boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
-              textAlign: "center",
-              color: "#000",
-            }}
-          >
-            <h2 style={{ color: "#000" }}>{item.nome}</h2>
-
-            <p
-              style={{
-                fontSize: "18px",
-                fontWeight: "bold",
-                color: "#000",
-              }}
-            >
-              R$ {item.preco.toFixed(2)}
-            </p>
-          </div>
+            nome={item.nome}
+            preco={item.preco}
+            estiloCard={estiloCard}
+            estiloTitulo={estiloTitulo}
+            estiloPreco={estiloPreco}
+          />
         ))}
       </div>
     </div>
